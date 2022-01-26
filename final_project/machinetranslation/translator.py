@@ -27,7 +27,7 @@ def english_to_french(englishtext):
     text=englishtext,
     model_id='en-fr').get_result()
     print(json.dumps(frenchtext, indent=2, ensure_ascii=False))
-    return frenchtext
+    return frenchtext.get("translations")[0]["translation"]
 
 def french_to_english(frenchtext):
     """
@@ -37,4 +37,4 @@ def french_to_english(frenchtext):
     text=frenchtext,
     model_id='fr-en').get_result()
     print(json.dumps(englishtext, indent=2, ensure_ascii=False))
-    return englishtext
+    return englishtext.get("translations")[0]["translation"]
